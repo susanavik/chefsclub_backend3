@@ -22,7 +22,7 @@ user2 = User.create(name: "Caroline Vik", username: "CarolineCooks",
 user3 = User.create(
     name: "Molly Baz",
     username: "CaeSal",
-    image: "public/MollyBaz.png"
+    image: "https://entropymag.org/wp-content/uploads/2019/07/IMG_1556-1170x1274.jpg"
 )
 
 puts "users seeded!"
@@ -52,11 +52,10 @@ sesame_seeds = Ingredient.create(name: "sesame seeds")
 garlic = Ingredient.create(name: "garlic cloves")
 sichuan = Ingredient.create(name: "sichuan peppercorns")
 
-
 pancakes = Recipe.create(
     name: "Swedish Pancakes", 
     time: "25 mins", 
-    image: "public/swedishpancake.png",
+    image: "https://assets.bonappetit.com/photos/5824f5027e34ab9157d0493d/1:1/w_2560%2Cc_limit/basic-crepes.jpg",
     instructions: "1. Blend eggs, milk, sugar, and vanilla in a blender until smooth and frothy, 
     2. Add flour and salt and blend just to combine. Cover batter and chill at least 1 hour, 
     3. Heat a medium nonstick skillet over medium-high, then brush with butter, 
@@ -64,7 +63,6 @@ pancakes = Recipe.create(
     5. Serve crepes with whatever your 💛desires.",
     user_id: User.all.sample.id
 )
-
 
 recipeingredient1 = [
     {measurement: "2 1/3 cup", ingredient_id: milk.id},
@@ -84,11 +82,10 @@ end
 
 puts "recipe 1 ✅"
 
-
 cake = Recipe.create(
     name: "Chocolate Hazelnut Cake", 
     time: "01:25", 
-    image: "public/chocolateHazelnut.png",
+    image: "https://assets.bonappetit.com/photos/5c5b3a777969ab3ef9e26ca1/16:9/w_2560%2Cc_limit/Basically-Flourless-Cake-Slice.jpg",
     instructions: "1. preheat oven to 325 degrees. 
     2. Generously butter bottom of the cake plan and line bottom with parchment paper. 
     3. Coarsely chop bittersweet chocolate into pieces. 
@@ -103,7 +100,6 @@ cake = Recipe.create(
     12. Serve cake with a dusting of powdered sugar, a handful of hazelnuts and a dolup of whipped cream.",
     user_id: User.all.sample.id 
 )
-
 
 recipeingredient2 = [
     {measurement: "1 tsp", ingredient_id: vanilla.id},
@@ -122,48 +118,43 @@ recipeingredient2.each do |ingredient|
     RecipeIngredient.create(measurement: ingredient[:measurement], ingredient_id: ingredient[:ingredient_id], recipe_id: cake.id)
 end
 
-# ingredientlist2.each do |ingredient|
-#     byebug
-#     Ingredient.create(name: ingredient[:name], measurement: ingredient[:measurement], recipe_id: 2)
-# end
-
 # puts "recipe 2 ✅"
 
-# recipe3 = Recipe.create(
-#     name: "Spicy Wonton with Chile Oil", 
-#     time: "02:45", 
-#     image: "https://static01.nyt.com/images/2021/04/16/dining/aw-Spicy-Wontons-With-Chile-Oil/merlin_185308362_327bc082-bffc-49d3-ab48-7044e892d91b-articleLarge.jpg",
-#     user_id: User.all.sample.id
-# )
+wontons = Recipe.create(
+    name: "Spicy Wonton with Chile Oil", 
+    time: "02:45", 
+    image: "https://static01.nyt.com/images/2021/04/16/dining/aw-Spicy-Wontons-With-Chile-Oil/merlin_185308362_327bc082-bffc-49d3-ab48-7044e892d91b-articleLarge.jpg",
+    instructions: "1. In a small bowl, whisk together 1/3 cup of soy sauce, 2 tbsp of ginger, all the chile oil, sesame oil and seeds, garlic cloves and Sichuan peppecorrns.
+    2. Prepare the filling: Put the pork, egg, 2 tbsp on ginger, 1 tbssp of soy sauce, rice vinegar in a medium bowl and mix well. 
+    3. Assemble the won tons: Fill a small bowl with water and line a rimmed baking sheet with parchment paper. 
+    Working with one won-ton wrapper at a time, place 1 rounded teaspoon of pork filling in the center of the wrapper. Dip your finger in the water and run it around the edges of the wrapper.
+    4. Transfer to the parchment paper, and cover loosely with a damp kitchen towel or a sheet of plastic wrap to prevent drying out.
+    5. Bring a large pot of water to the boil over high heat. Working in batches to avoid crowding, cook the won tons until they float to the surface, about 3 to 4 minutes. Remove with a slotted spoon.
+    6. Divide the won tons among bowls, drizzle with chile-oil sauce and garnish with scallions.",
+    user_id: User.all.sample.id
+)
 
-# ingredientlist3 = [
-#     [name: "square won-ton wrappers", measurement: "40"],
-#     [name: "pork", measurement: "10oz"],
-#     [name: "large egg", measurement: "1"],
-#     [name: "finely chopped ginger", measurement: "4 tbsp"],
-#     [name: "soy sauce", measurement: "1/3 cup + 1tbsp"],
-#     [name: "rice vinegar", measurement: "2 tbsp"],
-#     [name: "chicken stock", measurement: "2 tbsp"],
-#     [name: "chile oil", measurement: "1/3 cup"],
-#     [name: "sesame oil", measurement: "4 tsp"],
-#     [name: "sesame seeds", measurement: "4 tsp"],
-#     [name: "garlic cloves", measurement: "4"],
-#     [name: "sichuan peppercorns", measurement: "2 tsp"]
-# ]
+recipeingredient3 = [
+    {measurement: "40", ingredient_id: wonton.id},
+    {measurement: "10 oz", ingredient_id: pork.id},
+    {measurement: "1", ingredient_id: egg.id},
+    {measurement: "4 tbsp", ingredient_id: ginger.id},
+    {measurement: "1/3 cup + 1 tbsp", ingredient_id: soy.id},
+    {measurement: "2 tbsp", ingredient_id: vinegar.id},
+    {measurement: "2 tbsp", ingredient_id: stock.id},
+    {measurement: "1/3 cup", ingredient_id: chile_oil.id},
+    {measurement: "4 tsp", ingredient_id: sesame_oil.id},
+    {measurement: "4 tsp", ingredient_id: sesame_seeds.id},
+    {measurement: "4", ingredient_id: garlic.id},
+    {measurement: "2 tsp", ingredient_id: sichuan.id},
+]
+
+recipeingredient3.each do |ingredient|
+    RecipeIngredient.create(measurement: ingredient[:measurement], ingredient_id: ingredient[:ingredient_id], recipe_id: wontons.id)
+end
 
 
-# instructions3 = Instruction.create(
-#     recipe_id: 3,
-#     description: 
-#     ["1. In a small bowl, whisk together 1/3 cup of soy sauce, 2 tbsp of ginger, all the chile oil, sesame oil and seeds, garlic cloves and Sichuan peppecorrns.", 
-#     "2. Prepare the filling: Put the pork, egg, 2 tbsp on ginger, 1 tbssp of soy sauce, rice vinegar in a medium bowl and mix well.", 
-#     "3. Assemble the won tons: Fill a small bowl with water and line a rimmed baking sheet with parchment paper. Working with one won-ton wrapper at a time, place 1 rounded teaspoon of pork filling in the center of the wrapper. Dip your finger in the water and run it around the edges of the wrapper.",
-#     "4. Transfer to the parchment paper, and cover loosely with a damp kitchen towel or a sheet of plastic wrap to prevent drying out.",
-#     "5. Bring a large pot of water to the boil over high heat. Working in batches to avoid crowding, cook the won tons until they float to the surface, about 3 to 4 minutes. Remove with a slotted spoon.",
-#     "6. Divide the won tons among bowls, drizzle with chile-oil sauce and garnish with scallions."]
-# )
-
-# "recipe 3 ✅"
+"recipe 3 ✅"
 
 # 10.times do 
 #     Like.create(recipe_id: Recipe.all.sample.id, user_id: User.all.sample.id)

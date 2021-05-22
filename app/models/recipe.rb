@@ -7,6 +7,6 @@ class Recipe < ApplicationRecord
     has_many :users, through: :cooks
 
     has_many :recipe_ingredients
-    has_many :recipes, through: :recipe_ingredients
+    has_many :ingredients, through: :recipe_ingredients
 
 end
