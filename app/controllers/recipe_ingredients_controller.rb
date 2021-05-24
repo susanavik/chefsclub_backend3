@@ -8,4 +8,5 @@ class RecipeIngredientsController < ApplicationController
     def show
         render json: recipe_ingredient, include: [:measurement]
     end
+
 ends

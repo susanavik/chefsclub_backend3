@@ -1,5 +1,5 @@
 class RecipeSerializer < ActiveModel::Serializer
-  attributes :name, :time, :image, :instructions, :id
+  attributes :name, :time, :image, :instructions, :id, :likes, :cooks
 
   # def ingredient
   #   object.ingredient
@@ -8,4 +8,6 @@ class RecipeSerializer < ActiveModel::Serializer
   has_one :user
   # has_many :ingredients
   has_many :recipe_ingredients
+  has_many :likes
+  has_many :cooks
 end
