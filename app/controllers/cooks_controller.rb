@@ -11,7 +11,7 @@ class CooksController < ApplicationController
     end
 
     def create
-        params[:cook][:user_id] = current_user.id
+        # params[:cook][:user_id] = current_user.id
 
         cook = Cook.create!(cook_params)
 
@@ -25,7 +25,7 @@ class CooksController < ApplicationController
 
     private
     def cook_params
-        params.require(:cook).permit(:comment, :rating, :user_id, :recipe_id)
+        params.require(:cook).permit(:comment, :stars, :user_id, :recipe_id)
     end
 
 end

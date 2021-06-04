@@ -1,5 +1,5 @@
 class RecipeSerializer < ActiveModel::Serializer
-  attributes :name, :time, :image, :instructions, :id, :likes, :cooks
+  attributes :name, :time, :image, :instructions, :id, :likes, :cooks, :recipe_ingredients
 
   # def ingredient
   #   object.ingredient

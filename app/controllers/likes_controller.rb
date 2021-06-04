@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     def index
         likes = Like.all 
 
-        render json: likes, except: [:created_at, :updated_at]
+        render json: likes, exclude: [:created_at, :updated_at]
     end
 
     def show
@@ -12,16 +12,16 @@ class LikesController < ApplicationController
     end
 
     def create
-        params[:like][:user_id] = current_user.id
-
         like = Like.create(like_params)
-        
+
+        render json: like
     end
 
     def destroy
         like = current_user.likes.find(params[:id])
         like.destroy
     end
+
     private
 
     def like_params

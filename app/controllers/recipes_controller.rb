@@ -17,10 +17,11 @@ class RecipesController < ApplicationController
         render json: recipe
     end
 
-    def updated
+    def update
 
         recipe = Recipe.find(params[:id])
         recipe.update(recipe_params)
+
         render json: recipe
     end
 
